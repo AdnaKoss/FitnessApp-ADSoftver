@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.Goals"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinamax.png" Aspect="AspectFill" Opacity="0.6" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+
+                <ImageButton Source="strelica.png" WidthRequest="30" HeightRequest="30"
+                             HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
+                <Label Text="Izaberite datum" TextColor="White" FontSize="20" VerticalOptions="Center" Margin="0,20,0,20" FontAttributes="Bold"/>
+
+                <Frame BackgroundColor="White" BorderColor="White" CornerRadius="30" VerticalOptions="Center" Margin="0,0,0,20" WidthRequest="285" Opacity="0.85">
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="10" Padding="10">
+                        <Label Text="Od:" TextColor="DimGray" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                        <DatePicker x:Name="StartDatePicker"
+                                    TextColor="Gray"
+                                    FontSize="19"
+                                    Date="2025-01-10"
+                                    MaximumDate="2100-01-01"
+                                    MinimumDate="2000-01-01"
+                                    Format="dd. MMM yyyy"/>
+
+                        <Label Text="Do:" TextColor="DimGray" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start" Margin="0,10,0,0"/>
+                        <DatePicker x:Name="EndDatePicker"
+                                    TextColor="Gray"
+                                    FontSize="19"
+                                    Date="2025-01-13"
+                                    MaximumDate="2100-01-01"
+                                    MinimumDate="2000-01-01"
+                                    Format="dd. MMM yyyy"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Label Text="Postavite svoj cilj!" TextColor="White" FontSize="20" VerticalOptions="Center" Margin="0,0,0,20" FontAttributes="Bold"/>
+
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" ColumnSpacing="10" RowSpacing="10">
+                    <!-- 6 ciljeva -->
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="bicepicon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Ruke" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxRuke" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="stomachicon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Stomak" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxStomak" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="legsicon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Noge" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxNoge" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="butticon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Butt" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxButt" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="cardioicon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Cardio" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxCardio" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="White" CornerRadius="30" WidthRequest="170" HeightRequest="170">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="allicon.png" HeightRequest="50" HorizontalOptions="Center"/>
+                            <Label Text="Sve" TextColor="DimGray" FontSize="20" HorizontalTextAlignment="Center"/>
+                            <CheckBox x:Name="CheckBoxSve" VerticalOptions="Center" HorizontalOptions="Center" Color="#7950F2" HeightRequest="40" CheckedChanged="CheckBox_CheckedChanged"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <Button Text="Potvrdi" BackgroundColor="White" TextColor="Gray" Margin="20,40,20,20"
+                        CornerRadius="30" FontSize="30" FontAttributes="Bold" Clicked="OnPotvrdiButtonClicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

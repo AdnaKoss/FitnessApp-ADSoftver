@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.MinKcal"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        
+        <Image Source="pozadinauser.png"
+               Aspect="AspectFill"
+               Opacity="0.6"
+               IsVisible="True" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+                <ImageButton Source="strelica.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Start"
+                             Margin="0,0,0,20"
+                             Clicked="OnBackButtonClicked" />
+
+                <Label Text="Izaberite plan:"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center" />
+
+                <VerticalStackLayout Spacing="10" >
+                    <Button Text="Gubitak težine"
+                            WidthRequest="400"
+                            HeightRequest="60"
+                            BackgroundColor="#240738"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Clicked="OnWeightLossPlanSelected" />
+
+                    <Button Text="Mišićna masa"
+                            BackgroundColor="#34054a"
+                            HeightRequest="60"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Clicked="OnMuscleGainPlanSelected" />
+
+                    <Button Text="Održavanje kondicije"
+                            BackgroundColor="#500455"
+                            HeightRequest="60"
+                            TextColor="White"
+                            CornerRadius="20"
+                            Clicked="OnMaintainFitnessPlanSelected" />
+                </VerticalStackLayout>
+
+                <Label x:Name="PlanTitle"
+                       Text=""
+                       FontSize="20"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,20,0,10"
+                       IsVisible="False" />
+
+                <VerticalStackLayout x:Name="PlanContainer" Spacing="10" IsVisible="False" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

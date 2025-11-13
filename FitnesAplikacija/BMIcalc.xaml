@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.BMIcalc"
+             x:Name="ThisPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinabmi.png" Aspect="AspectFill" />
+        <BoxView BackgroundColor="#AA000000" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <ImageButton Source="strelica.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             HorizontalOptions="Start"
+                             Clicked="OnBackButtonClicked" />
+
+                <Label Text="BMI Kalkulator"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+
+                    <Frame x:Name="MaleOption"
+       Padding="10"
+       BackgroundColor="Transparent"
+       BorderColor="White"
+       CornerRadius="20">
+                        <VerticalStackLayout>
+                            <Image Source="muskaikona.png" WidthRequest="40" HeightRequest="40" />
+                            <Label Text="Muško" TextColor="White" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMaleTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame x:Name="FemaleOption"
+       Padding="10"
+       BackgroundColor="Transparent"
+       BorderColor="White"
+       CornerRadius="20">
+                        <VerticalStackLayout>
+                            <Image Source="zenskaikona.png" WidthRequest="40" HeightRequest="40" />
+                            <Label Text="Žensko" TextColor="White" HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnFemaleTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </HorizontalStackLayout>
+
+                <Entry x:Name="HeightEntry" Placeholder="Visina (cm)" PlaceholderColor="White" TextColor="White" WidthRequest="390" Margin="10" HeightRequest="60"/>
+                <Entry x:Name="WeightEntry" Placeholder="Težina (kg)" PlaceholderColor="White" TextColor="White"  WidthRequest="390" Margin="10" HeightRequest="60"/>
+
+                <Button Text="Izračunaj"
+                        BackgroundColor="#321259" FontSize="25"
+                        TextColor="White"
+                        Margin="10"
+                        Clicked="OnIzracunajBMIClicked" HeightRequest="75" WidthRequest="255" CornerRadius="40"/>
+
+                <Frame BackgroundColor="#321259" CornerRadius="40" WidthRequest="300" HeightRequest="250"
+                       Padding="20"  > 
+                    <Label x:Name="ResultLabel"
+                           Text="Vaš BMI će biti prikazan ovdje."
+                           FontSize="25"
+                           TextColor="White" Padding="20"
+                           HorizontalTextAlignment="Center" />
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

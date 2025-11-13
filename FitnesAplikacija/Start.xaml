@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.Start"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <Image Source="pozadinastart.png"
+               Aspect="AspectFill"
+               Opacity="1"
+               Grid.RowSpan="2"
+               IsEnabled="False" />
+
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Padding="0,40,0,0">
+            <Label Text="Pozdrav!" TextColor="White" HorizontalOptions="Center"
+                   FontSize="30" FontAttributes="Bold"/>
+            <Image Source="ikonadva.png" HeightRequest="200" Margin="0,20,0,40"/>
+            <Label Text="Dobrodošli u" TextColor="White" HorizontalOptions="Center"
+                   FontSize="30" FontAttributes="Bold"/>
+            <Label Text="Fitness aplikaciju" HorizontalOptions="Center" TextColor="White"
+                   FontSize="35" FontAttributes="Bold"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="50" Padding="35,70">
+            <Button Text="Prijava" WidthRequest="285" TextColor="White" FontSize="25"
+                    CornerRadius="40" HeightRequest="70" BackgroundColor="#4B2D9F" FontAttributes="Bold"
+                    Clicked="OnLoginButtonClicked" />
+            <Button Text="Registracija" WidthRequest="285" HeightRequest="70" TextColor="White" FontSize="25"
+                    CornerRadius="40" BackgroundColor="#4B2D9F" FontAttributes="Bold"
+                    Clicked="OnRegisterButtonClicked" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinamain.png" Aspect="AspectFill" Opacity="0.6" />
+
+        <ScrollView>
+            <StackLayout Padding="20">
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                    <StackLayout>
+                        <Label Text="Dobro Došli" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                        <Label Text="Vaša fitnes aplikacija" FontSize="16" TextColor="White"/>
+                    </StackLayout>
+                    <ImageButton Source="user.png" WidthRequest="50" HeightRequest="50"
+                                 HorizontalOptions="EndAndExpand" Clicked="OnUserClicked"/>
+                </StackLayout>
+
+                <Frame CornerRadius="15" Padding="10" HasShadow="False" Margin="0,20,0,0">
+                    <Frame.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#8F0854" Offset="0.0" />
+                            <GradientStop Color="#4A148C" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <Label x:Name="MotivationalMessageLabel"
+           FontSize="22"
+           FontAttributes="Italic"
+           TextColor="White"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center" />
+                </Frame>
+
+                <Label Text="Trening" TextColor="White" FontSize="20" FontAttributes="Bold" Margin="10,40,0,0"/>
+
+                <Grid Margin="0,10" ColumnSpacing="10" RowSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" CornerRadius="30" Padding="10" BackgroundColor="White" HasShadow="True">
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
+                            <Image Source="armicon.png" WidthRequest="44" />
+                            <Label Text="Trenutno imate" FontSize="26" TextColor="DimGray" />
+                     
+                            <Label x:Name="ZavrseniTreninziLabel" HorizontalOptions="Center" Text="0" FontSize="33" FontAttributes="Bold" TextColor="Black"/>
+
+                            <Label Text="Cilja" FontSize="22" TextColor="DimGray" HorizontalOptions="Center" />
+
+                            <Image x:Name="CiljStatusImageCiljevi" WidthRequest="90" HeightRequest="70" Margin="0,5,0,5"/>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" CornerRadius="30" Padding="10" BackgroundColor="White" HasShadow="True">
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="kcalicon.png" WidthRequest="29"/>
+                            <Label x:Name="TreninziLabel"
+                                    Text="Učitavanje kalorija..."
+                                    FontSize="23"
+                                    TextColor="Black"                       
+                                    HorizontalOptions="Center"
+                                    Margin="0,10" />
+                            
+                            <Image x:Name="CiljStatusImageKalorije" WidthRequest="90" HeightRequest="70" Margin="0,5,0,5"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" CornerRadius="30" Padding="10" BackgroundColor="White" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTimeTapped" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="clockicon.png" WidthRequest="27" Margin="0,0,0,5"/>
+                            <Label Text="Vrijeme vaših treninga" FontSize="17" TextColor="DimGray"/>
+                            <Label x:Name="TrainingTimeLabel" HorizontalOptions="Center"  Text="00:00:00" FontSize="28" FontAttributes="Bold" TextColor="Black"/>
+                             
+                            <Image x:Name="CiljStatusImageVrijeme" WidthRequest="90" HeightRequest="70" Margin="0,5,0,5"/>
+
+                            <Label Text="Minute" FontSize="15" HorizontalOptions="Center" TextColor="DimGray"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <StackLayout x:Name="TimerSection" IsVisible="False" Margin="0,10,0,0">
+                    <Label x:Name="TimerLabel" Text="00:00" FontSize="32" HorizontalOptions="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                        <Button Text="Start" Clicked="OnStartClicked" />
+                        <Button Text="Stop" Clicked="OnStopClicked" />
+                    </HorizontalStackLayout>
+                </StackLayout>
+
+                <Label Text="Također pogledajte" FontSize="20" TextColor="White" FontAttributes="Bold" Margin="10,40,0,10"/>
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto" ColumnSpacing="10" RowSpacing="10">
+                    <Frame Grid.Row="0" Grid.Column="0" CornerRadius="25" BackgroundColor="White" WidthRequest="170" HeightRequest="170" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnBMITapped" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="bmicalcicon.png" HeightRequest="60"/>
+                            <Label Text="Izračunajte svoj BMI" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="0" Grid.Column="1" CornerRadius="25" BackgroundColor="White" WidthRequest="170" HeightRequest="170" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSleepTapped" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="moonicon.png" HeightRequest="60"/>
+                            <Label Text="Vaš san ovaj mjesec" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="0" CornerRadius="25" BackgroundColor="White" WidthRequest="170" HeightRequest="170" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMaxTapped" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="foodicon.png" HeightRequest="60"/>
+                            <Label Text="Unos kalorija" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" Grid.Column="1" CornerRadius="25" BackgroundColor="White" WidthRequest="170" HeightRequest="170" HasShadow="True">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnMinTapped" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="calorieicon.png" HeightRequest="60"/>
+                            <Label Text="Odabir treninga" FontSize="12" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <Label Text="Postavite ciljeve!" TextColor="White" FontSize="20" FontAttributes="Bold" Margin="10,40,0,0"/>
+                <Frame CornerRadius="30" BackgroundColor="White" Padding="15" Margin="7" HeightRequest="200" HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGoalTapped" />
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout>
+                        <Image Source="muscleicon.png" HeightRequest="100"/>
+                        <VerticalStackLayout>
+                            <Label Text="Postavite ciljeve!" TextColor="DimGray" FontSize="20" FontAttributes="Bold" Margin="20,55,20,0"/>
+                            <Label Text="Postavite ciljeve&#10;na mjesečnoj bazi" FontSize="14" TextColor="Gray" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

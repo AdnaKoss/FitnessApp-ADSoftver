@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.MaxKcal"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinamax.png"
+               Aspect="AspectFill"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" 
+               Opacity="0.6"/>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <ImageButton Source="strelica.png" WidthRequest="30" HeightRequest="30"
+                             HorizontalOptions="Start" Clicked="OnBackButtonClicked"/>
+
+                <Label Text="Unos kalorija" FontSize="25" FontAttributes="Bold" TextColor="White"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="110" HeightRequest="180" >
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="foodicon.png" HeightRequest="50"/>
+                            <Label Text="Ugljikohidrati" FontAttributes="Bold" TextColor="Gray" FontSize="15" HorizontalTextAlignment="Center" />
+                            <Entry x:Name="CarbsEntry" Placeholder="g " Keyboard="Numeric" TextColor="Black" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="18"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="110" HeightRequest="180">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="dinnericon.png" HeightRequest="50"/>
+                            <Label Text="Proteini" FontAttributes="Bold" TextColor="Gray" FontSize="16" HorizontalTextAlignment="Center" />
+                            <Entry x:Name="ProteinsEntry" Placeholder="g" Keyboard="Numeric" TextColor="Black" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="18"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="110" HeightRequest="180">
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                            <Image Source="lunchicon.png" HeightRequest="50"/>
+                            <Label Text="Masti" FontAttributes="Bold" TextColor="Gray" FontSize="16" HorizontalTextAlignment="Center" />
+                            <Entry x:Name="FatsEntry" Placeholder="g" Keyboard="Numeric" TextColor="Black" WidthRequest="100" HorizontalTextAlignment="Center" FontSize="18"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+
+                <Frame BackgroundColor="White" CornerRadius="20" Padding="15" Margin="0,10">
+                    <HorizontalStackLayout VerticalOptions="Center" Spacing="15">
+                        <Image Source="watericon.png" HeightRequest="40"/>
+                        <Label Text="Voda (L):" VerticalOptions="Center" TextColor="Gray" FontSize="16"/>
+                        <Entry x:Name="WaterEntry" Placeholder="0.0" Keyboard="Numeric" WidthRequest="120" TextColor="Black" FontSize="18"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Label Text="Napredak kalorija" TextColor="White" FontSize="16"/>
+                <ProgressBar x:Name="CaloriesProgressBar" Progress="0" HeightRequest="20" BackgroundColor="#ffffff55" ProgressColor="#FF8C00"/>
+                <Label x:Name="CaloriesProgressLabel" Text="0 / 2000 kcal" TextColor="White" HorizontalTextAlignment="Center" FontSize="16"/>
+
+                <Label Text="Napredak vode" TextColor="White" FontSize="16"/>
+                <ProgressBar x:Name="WaterProgressBar" Progress="0" HeightRequest="20" BackgroundColor="#ffffff55" ProgressColor="#00BFFF"/>
+                <Label x:Name="WaterProgressLabel" Text="0 / 2 L" TextColor="White" HorizontalTextAlignment="Center" FontSize="16"/>
+
+                <Label x:Name="SummaryLabel" Text="Unijeli ste 0 kcal i 0.0 l vode." FontSize="16" TextColor="White" HorizontalTextAlignment="Center" />
+
+                <Button Text="Spremi unos" Clicked="OnSaveButtonClicked"
+                        BackgroundColor="#4B2D9F" TextColor="White" CornerRadius="30" Padding="15"
+                        Margin="80,20,80,0"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

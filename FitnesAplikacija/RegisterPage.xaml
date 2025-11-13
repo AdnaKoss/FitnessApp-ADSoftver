@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinaregistracija.png"
+               Aspect="AspectFill"
+               Opacity="0.6"
+               IsEnabled="False"/>
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+
+                <ImageButton Source="strelica.png" WidthRequest="30" HeightRequest="30"
+                             HorizontalOptions="Start" Clicked="OnButtonBackClicked"/>
+
+                <Label Text="Registrujte se" TextColor="White" FontSize="40" 
+                       FontAttributes="Bold" Padding="0,20,0,0"/>
+                <Label Text="Započnite svoju avanturu!" TextColor="White" FontSize="20" 
+                       Padding="0,5,0,0"/>
+
+                <VerticalStackLayout Padding="0,30,0,0">
+                    <Label Text="Ime i Prezime" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="UsernameEntry"
+                               Placeholder="Ime i Prezime" PlaceholderColor="White" 
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+
+                    <Label Text="Datum rođenja" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="dateEntry"
+                               Placeholder="Datum" PlaceholderColor="White"
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+
+                    <Label Text="E-mail" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="EmailEntry"
+                               Placeholder="E-mail" Keyboard="Email" PlaceholderColor="White"
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+
+                    <Label Text="Telefon" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="MobileEntry"
+                               Placeholder="Telefon" Keyboard="Numeric" PlaceholderColor="White"
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+
+                    <Label Text="Šifra" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Šifra" IsPassword="True" PlaceholderColor="White"
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+
+                    <Label Text="Potvrdi Šifru" TextColor="White" FontAttributes="Bold" Padding="5,10"/>
+                    <Frame BackgroundColor="Transparent" CornerRadius="10" BorderColor="Transparent" Padding="5">
+                        <Entry x:Name="CPasswordEntry"
+                               Placeholder="Šifra" IsPassword="True" PlaceholderColor="White"
+                               FontSize="14" TextColor="White"/>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Margin="0,40,0,0">
+                    <Label HorizontalOptions="Center" FontSize="14">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Imate račun? " TextColor="White"/>
+                                <Span Text="Prijavite se" TextColor="White" FontAttributes="Bold">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnLoginTapped" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </HorizontalStackLayout>
+
+                <Button Text="Registracija" TextColor="White" FontSize="20" Margin="45,20,45,20"
+                        HeightRequest="80" CornerRadius="40" BackgroundColor="#4B2D9F" FontAttributes="Bold"
+                        Clicked="OnRegisterButtonClicked" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

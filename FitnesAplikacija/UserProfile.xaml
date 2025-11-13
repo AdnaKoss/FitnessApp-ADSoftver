@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnesAplikacija.UserProfile"
+             Title="UserProfile"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Image Source="pozadinauser.png"
+               Aspect="AspectFill"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+        <BoxView BackgroundColor="#AA000000" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20">
+
+                <ImageButton Source="strelica.png" WidthRequest="30" HeightRequest="30"
+                             HorizontalOptions="Start" Clicked="OnButtonBackClicked"/>
+
+                <Frame BackgroundColor="Transparent" BorderColor="White" CornerRadius="100" 
+                       WidthRequest="150" HeightRequest="150" Margin="0,60,0,30">
+                    <StackLayout>
+                        <Image Source="user.png" HeightRequest="120"/>
+                    </StackLayout>
+                </Frame>
+
+                <Label Text="Username" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" FontAttributes="Bold" Margin="5,0,0,10"/>
+                <Frame Padding="10" BackgroundColor="Transparent" BorderColor="White" CornerRadius="30">
+                    <Label x:Name="UsernameLabel" Text="Username" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" Opacity="0.8" Padding="5,0"/>
+                </Frame>
+
+                <Label Text="Datum Rođenja" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" FontAttributes="Bold" Margin="5,25,0,10"/>
+                <Frame Padding="10" BackgroundColor="Transparent" BorderColor="White" CornerRadius="30">
+                    <Label x:Name="BirthdateLabel" Text="Datum rodenja" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" Opacity="0.8" Padding="5,0"/>
+                </Frame>
+
+                <Label Text="E-Mail" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" FontAttributes="Bold" Margin="5,25,0,10"/>
+                <Frame Padding="10" BackgroundColor="Transparent" BorderColor="White" CornerRadius="30">
+                    <Label x:Name="EmailLabel" Text="Email" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" Opacity="0.8" Padding="5,0"/>
+                </Frame>
+
+                <Label Text="Broj Telefona" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" FontAttributes="Bold" Margin="5,25,0,10"/>
+                <Frame Padding="10" BackgroundColor="Transparent" BorderColor="White" CornerRadius="30">
+                    <Label x:Name="MobileLabel" Text="Mobile" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" Opacity="0.8" Padding="5,0"/>
+                </Frame>
+
+                <Button Text="Odjavite se" TextColor="White" FontSize="20" Margin="25,80,25,20" HeightRequest="70"  WidthRequest="275"
+                        CornerRadius="40" BackgroundColor="#4B2D9F" FontAttributes="Bold" Clicked="OnLogOutButtonClicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
